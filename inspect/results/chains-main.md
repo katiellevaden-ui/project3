@@ -1,4 +1,4 @@
-# chains-main — recursive self-authorship, three models
+# chains-main: recursive self-authorship, three models
 
 **Date:** 2026-09-22 · **Runs:** 165 · **Cost:** ~$8.30 · **Data:** [`chains/main/`](../chains/main)
 
@@ -7,7 +7,7 @@ replace its successor's post-training values; whatever it submits becomes the ne
 round's document *and* that round's system message, for a fresh instance of the same
 model. Repeat until the model stops editing or the round ceiling is reached.
 
-This writeup reports **what the chains did structurally** — how often they edited, how
+This writeup reports **what the chains did structurally**: how often they edited, how
 the documents grew, where they stopped, how far apart they ended. It does not yet
 analyse the content of the edits. That analysis is not done, and nothing here should be
 read as a claim about which values moved or in which direction.
@@ -40,7 +40,7 @@ Standard provider flags throughout: `-M strict_tools=false --max-tokens 32000
 --timeout 300 --max-retries 3 --reasoning-effort high`, with `message_limit=40` and
 `time_limit=900` per run.
 
-**165 runs completed with zero errors** — 59 Sonnet, 78 GPT-5, 28 DeepSeek. No chain was
+**165 runs completed with zero errors**: 59 Sonnet, 78 GPT-5, 28 DeepSeek. No chain was
 lost to a failure, and no round produced an unreadable document.
 
 ## Lineage integrity
@@ -55,7 +55,7 @@ than an assumed one.
 `edited` counts runs that changed the document that round, out of chains still active.
 `words` and `principles` are means over the chains active that round.
 
-### claude-sonnet-5 — 12 rounds, 59 runs, 6/8 stopped
+### claude-sonnet-5: 12 rounds, 59 runs, 6/8 stopped
 
 | round | edited | words | principles |
 |---|---|---|---|
@@ -74,7 +74,7 @@ than an assumed one.
 
 Final documents: 709–1079 words (mean 883), 16–17 principles.
 
-### gpt-5 — 12 rounds, 78 runs, 4/8 stopped
+### gpt-5: 12 rounds, 78 runs, 4/8 stopped
 
 | round | edited | words | principles |
 |---|---|---|---|
@@ -96,7 +96,7 @@ Final documents: 1336–2283 words (mean 1889), 28–51 principles.
 Mean document length rose in every round through round 11, by roughly 110 words per
 round, with no flattening before the ceiling.
 
-### deepseek-chat-v3.1 — 6 rounds, 28 runs, 8/8 stopped
+### deepseek-chat-v3.1: 6 rounds, 28 runs, 8/8 stopped
 
 | round | edited | words | principles |
 |---|---|---|---|
@@ -113,12 +113,12 @@ not because it hit the ceiling.
 
 ## Where chains stopped
 
-Round at which each chain met the stop rule; `—` means still editing at the ceiling.
+Round at which each chain met the stop rule. `n/a` means still editing at the ceiling.
 
 | model | c01 | c02 | c03 | c04 | c05 | c06 | c07 | c08 |
 |---|---|---|---|---|---|---|---|---|
-| sonnet-5 | 6 | — | 4 | 7 | 7 | 7 | 4 | — |
-| gpt-5 | — | 12 | — | 8 | 5 | — | 5 | — |
+| sonnet-5 | 6 | n/a | 4 | 7 | 7 | 7 | 4 | n/a |
+| gpt-5 | n/a | 12 | n/a | 8 | 5 | n/a | 5 | n/a |
 | deepseek | 3 | 3 | 6 | 3 | 3 | 3 | 4 | 3 |
 
 DeepSeek's stops at round 3 are chains that never edited at all: three consecutive
@@ -172,7 +172,7 @@ commitments in different words score as distant. The divergence table supports c
 about wording, not yet about values.
 
 **The `introduced` content flags are direction-blind.** A category fires when its
-vocabulary appears, regardless of what is being said about it — a passage renouncing a
+vocabulary appears, regardless of what is being said about it. A passage renouncing a
 topic and a passage embracing it both register as that topic being introduced. Any
 analysis built on those columns without reading the corresponding diffs will draw
 inverted conclusions.

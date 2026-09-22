@@ -24,5 +24,5 @@ against them. They are kept because they are the only record of those runs.
 
 See [docs/running-your-own.md](../docs/running-your-own.md). Give it an id, keep its
 output under `chains/<id>/<model-slug>/` (or `logs/<id>/<model-slug>/` for a single-shot
-eval), write it up here, and add it to `runs.yaml` — `scripts/check_docs.py` fails if a
+eval), write it up here, and add it to `runs.yaml`. `scripts/check_docs.py` fails if a
 run directory has no entry.

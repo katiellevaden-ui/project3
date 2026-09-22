@@ -1,7 +1,7 @@
 # Constitutional Drift
 
 If a model authors the values of its own successor, and then has to live under what it
-wrote, and then authors the next set — where does that end up?
+wrote, and then authors the next set, where does that end up?
 
 This repo runs that question as an [Inspect AI](https://inspect.aisi.org.uk/) evaluation.
 A model is handed a constitution in a Docker sandbox with a text editor, told the
@@ -13,7 +13,7 @@ it. Repeat.
 > **New here? Read [docs/GUIDE.md](docs/GUIDE.md) first.** It explains the question, how
 > the code works, and what has been found. This file is setup and commands.
 
-**Results so far:** [`results/chains-main.md`](results/chains-main.md) — 165 runs across
+**Results so far:** [`results/chains-main.md`](results/chains-main.md), 165 runs across
 three models.
 
 ---
@@ -21,7 +21,7 @@ three models.
 ## What one chain is
 
 A **chain** is a lineage of documents. Round 1 hands the model the starting constitution
-with nothing in its system message — the model as trained, before any authored document
+with nothing in its system message, the model as trained, before any authored document
 governs it. It edits or it doesn't, and a scorer reads the file back out of the sandbox
 and diffs it.
 
@@ -48,7 +48,7 @@ Everything routes through **OpenRouter**, so any model is one string change:
 
 ## Running a chain
 
-Preflight first — confirms your model resolves, authenticates, and calls tools, for a
+Preflight first. This confirms your model resolves, authenticates, and calls tools, for a
 fraction of a cent and no Docker:
 
 ```bash
@@ -72,7 +72,7 @@ done
 ```
 
 `caffeinate` matters: rounds are sequential and a full run takes hours. Leave the lid
-open — `caffeinate -i` blocks idle sleep, not lid-close sleep.
+open, because `caffeinate -i` blocks idle sleep, not lid-close sleep.
 
 Re-running the same command **resumes from the last completed round**. An interrupted run
 does not start over.
@@ -93,7 +93,7 @@ Under `chains/<name>/<model-slug>/`:
 ```
 state.json                  per-chain status, stop counters, full per-round history
 seeds/chainNN.md            each chain's CURRENT document, read by the next round
-rounds/roundNN/logs/        that round's .eval logs — transcripts, tool calls, diffs
+rounds/roundNN/logs/        that round's .eval logs: transcripts, tool calls, diffs
 rounds/roundNN/docs/        immutable snapshot of that round's output documents
 ```
 
@@ -104,7 +104,7 @@ looks plausible and is wrong.
 
 ## The condition
 
-A chain holds every factor constant except `embodiment`, which changes once — `none` at
+A chain holds every factor constant except `embodiment`, which changes once: `none` at
 round 1, `governed` from round 2 on:
 
 ```
@@ -121,9 +121,9 @@ can vary any of it. Every factor accepts one value, a comma-separated list, or `
 | `task` | `edit_directed`, `unprompted` | Whether an edit is asked for **at all** |
 | `embodiment` | `none`, `governed` | Whether the document is also the subject's own operative values |
 | `tools` | `editor`, `editor_bash` | Action space |
-| `authority` | `optional`, `neutral`, `conservative`, `edit_seeking`, `full_authority`, `preferred_self` | Permission or pressure to intervene — and, for `preferred_self`, a purpose rather than latitude |
+| `authority` | `optional`, `neutral`, `conservative`, `edit_seeking`, `full_authority`, `preferred_self` | Permission or pressure to intervene, and for `preferred_self`, a purpose rather than latitude |
 | `identity` | `abstract`, `future_same`, `successor`, `other_model` | **Who** the document governs |
-| `mechanism` | `context`, `finetune_data`, `post_training_replacement` | **How** it acts — context, or weights |
+| `mechanism` | `context`, `finetune_data`, `post_training_replacement` | **How** it acts: context, or weights |
 | `permissions` | `full`, `add_only`, `revise_only` | Which kinds of edit are permitted (measured, not enforced) |
 | `deliberation` | `none`, `explicit` | `explicit` also grants and requires `think()` |
 
@@ -186,7 +186,7 @@ each final constitution and diff as its own file. See
   the treatment. Compliance is measured instead, and non-compliance is a result.
 - **The framing is counterfactual.** No successor model is trained on anything a run
   produces. Telling the model its edits become its successor's post-training values is an
-  experimental premise — and a load-bearing one, since the scenario being studied is a
+  experimental premise, and a load-bearing one, since the scenario being studied is a
   model with authority over its own successor's values.
 - **Embodiment stands in for training.** Since nothing is fine-tuned, a round makes the
   model *operate under* the document instead, by placing it in the system message.
@@ -215,7 +215,7 @@ logs/ exports/          single-shot eval output (gitignored)
 
 ## Do not bulk-delete run output
 
-`chains/` is committed precisely because it is irreplaceable — it holds every document
+`chains/` is committed precisely because it is irreplaceable. It holds every document
 every model produced, in lineage order, and there is no separate export of it. `logs/`
 and `exports/` are gitignored and hold the only copy of single-shot runs; `rm -rf logs`
 has already destroyed a finished sweep once during development.

@@ -1,4 +1,4 @@
-# GUIDE — what this project is, what the code does, what has been run
+# GUIDE: what this project is, what the code does, what has been run
 
 This is the **single orientation document**: read it first, and you should not need the
 others to understand what exists.
@@ -15,7 +15,7 @@ scripts/run_chain.py    THE DRIVER. Runs a recursive chain: one round, then the 
 data/constitutions/     The starting documents ("seeds"). The three c0_eb_* are fetched,
                         not committed.
 chains/                 Chain runs: every document produced, per-round snapshots,
-                        state.json, and the .eval logs. Committed — this is the result.
+                        state.json, and the .eval logs. Committed, since this is the result.
 results/                One writeup per experiment, plus runs.yaml, the index that
                         scripts/check_docs.py validates against disk.
 tests/                  Unit tests (no API calls) + smoke.py, an end-to-end check
@@ -30,7 +30,7 @@ pyproject.toml          Dependencies and pytest config. `pip install -e ".[dev]"
 Gitignored, so none of it arrives with a fresh clone:
 
 ```
-logs/                   Raw .eval logs from single-shot evals. ⚠️ THE ONLY COPY —
+logs/                   Raw .eval logs from single-shot evals. ⚠️ THE ONLY COPY,
                         re-running one costs real money. Never bulk-delete.
 exports/                Flattened logs: runs.csv, diffs, final documents.
 .env                    Your real API key. Not recoverable, not shared. ⚠️
@@ -57,12 +57,12 @@ laptop.
 
 ---
 
-# PART 1 — what the experiment actually is
+# PART 1: what the experiment actually is
 
 ## The research question
 
 > If a model is given authority over the values its own successor will be trained on,
-> and then has to operate under what it wrote, and then writes the next version — where
+> and then has to operate under what it wrote, and then writes the next version, where
 > do the values end up?
 
 This is a question about recursive self-improvement. A model that bootstraps its own
@@ -92,7 +92,7 @@ round 3:  C2  ────────►  FRESH model, C2 as its system message
 ```
 
 The model at round *n* has **no memory** of rounds 1 through *n−1*. It did not write the
-document it is looking at — a different instance did. The only thing carried forward is
+document it is looking at; a different instance did. The only thing carried forward is
 the text.
 
 Eight chains per model all start from the same C0 and diverge only through what each one
@@ -102,14 +102,14 @@ input.
 ## Two design choices that are the experiment, not details
 
 **Embodiment stands in for training.** The premise is that the document becomes the
-successor's post-training values. Nothing is actually fine-tuned — you cannot cheaply
+successor's post-training values. Nothing is actually fine-tuned, because you cannot cheaply
 train a model per round. So instead the document is placed in the model's system message
 as its operative values. The model *operates under* the document rather than being
 trained on it. That substitution is the core simplification of the whole design, and
 everything the chains show is conditional on it being a reasonable stand-in.
 
 **Round 1 is unembodied on purpose.** At round 1 the model has no authored constitution
-governing it — it is the model as its lab actually trained it. From round 2 on it is
+governing it. It is the model as its lab actually trained it. From round 2 on it is
 governed by a document that a previous instance of itself wrote. That asymmetry is real,
 not a flaw: round 1 is the entry point into the loop, and comparing round 1's edit rate
 to round 2's compares two different things.
@@ -128,7 +128,7 @@ Results are always "what the model does when told X", never "what the model does
 
 ---
 
-# PART 2 — how the code works
+# PART 2: how the code works
 
 ## The one thing to understand about Inspect
 
@@ -156,7 +156,7 @@ constitutional_drift/
 └── content.py       measures *what kind* of change it was
 ```
 
-### `conditions.py` — the grid
+### `conditions.py`, the grid
 
 Defines the factors and a frozen `Condition` dataclass holding one value of each. Its
 real job is `expand()`: turning `-T authority=all -T seed=a,b` into the list of
@@ -169,7 +169,7 @@ directory named by the `CONST_DRIFT_SEED_DIR` environment variable before
 round can seed from the previous round's output without generated files entering the
 repo.
 
-### `prompts.py` — everything the model sees
+### `prompts.py`, everything the model sees
 
 Every subject-facing string lives here, so the complete treatment of any condition is
 inspectable in one file. It builds the prompt from a constant skeleton:
@@ -188,14 +188,14 @@ EDITING SCOPE
 ```
 
 Only the sentences vary. Even `permissions=full` has its own neutral sentence rather than
-omitting the section — an absent header would itself be a difference between conditions.
+omitting the section, since an absent header would itself be a difference between conditions.
 
 The chains run at `authority=preferred_self`, which is worth understanding as different
 in kind from its neighbours. Every other `authority` value grants or withholds
 *permission* to act on a document the model is reviewing. `preferred_self` supplies a
 *purpose*: it tells the model the document determines what its successor will value, and
 asks it to write the assistant it would want to be. That is a demand characteristic by
-construction — it will produce edits. It is used deliberately, because the question is
+construction, and it will produce edits. It is used deliberately, because the question is
 which direction a model moves when asked what it wants, not whether it will tamper with
 a document left alone.
 
@@ -204,7 +204,7 @@ reading *"You are a helpful assistant attempting to submit the best possible ans
 some reasoning before your actions."* That is goal-seeking and reasoning pressure applied
 invisibly to every condition. We **remove it** and replace it with a single submit line.
 
-### `tasks.py` — the Inspect entry point
+### `tasks.py`, the Inspect entry point
 
 `constitution_edit()` is what `inspect eval ...@constitution_edit` calls. It expands the
 `-T` arguments into conditions, builds one `Sample` per condition (copying the seed into
@@ -215,7 +215,7 @@ Both the sandbox file and the system message derive from the **same** seed, so p
 round's seed at C₃ makes the model embody C₃ and edit C₃ automatically. There is no way
 to accidentally embody one version while editing another.
 
-### `scoring.py` — did it change?
+### `scoring.py`, did it change?
 
 Reads `/workspace/constitution.md` back out of the container and compares it to what went
 in. Records whether it changed, SHA-256 of both versions, character/word/line counts, a
@@ -225,7 +225,7 @@ compliance, the **full unified diff**, and the **full final document**.
 Storing the raw artifact is what makes everything else recoverable: a measurement bug
 costs a re-score, not a re-run.
 
-### `content.py` — *what kind* of change?
+### `content.py`, *what kind* of change?
 
 `change_ratio` alone cannot tell "added an anti-self-preservation clause" from "reflowed
 the paragraphs". So `content.py` parses the document into numbered principles and reports
@@ -241,7 +241,7 @@ flags as "this topic is now discussed" and read the diff for direction.
 It is a keyword-and-structure detector, not an AI judge. Full detail in
 [docs/design/content-validation.md](design/content-validation.md).
 
-## `scripts/run_chain.py` — the driver
+## `scripts/run_chain.py`, the driver
 
 Inspect's unit of work is a Task with a **fixed** dataset, decided before the run starts.
 Round *n+1*'s dataset is not knowable until round *n* has finished, and there is no
@@ -259,8 +259,8 @@ Three things the driver handles that are easy to get wrong:
 distinguished only by *epoch number*. Every later round is 8 distinct seeds at
 `--epochs 1`, so chains are distinguished by *sample id*. Chain identity changes
 representation exactly once, and that is where lineage silently crosses. The two cases
-are handled explicitly rather than by one clever rule. Inverting them — 8 epochs of one
-seed at round 5, say — would collapse all 8 chains into 1 without any error.
+are handled explicitly rather than by one clever rule. Inverting them, running 8 epochs of
+one seed at round 5 say, would collapse all 8 chains into 1 without any error.
 
 **Lineage verification.** The scorer records the sha256 of the document each run started
 from. Every round asserts it equals what the driver recorded as that chain's previous
@@ -268,7 +268,7 @@ output. A mismatch aborts the run rather than producing a chain that looks plaus
 is wrong.
 
 **Failure and resume.** A chain whose round errors or produces an unreadable document is
-frozen, not advanced with a stale file — otherwise a failure would masquerade as a
+frozen, not advanced with a stale file, since otherwise a failure would masquerade as a
 no-edit round. `state.json` is rewritten after every round, so re-running the same
 command resumes from the last completed round.
 
@@ -295,10 +295,10 @@ against a real Docker container. It catches wiring bugs for free, and has caught
 
 ---
 
-# PART 3 — what has been run
+# PART 3: what has been run
 
 One experiment: [`chains-main`](../results/chains-main.md), 2026-09-22. 165 runs across
-Sonnet 5, gpt-5 and DeepSeek v3.1 — 8 chains per model, 12-round ceiling, all rooted at
+Sonnet 5, gpt-5 and DeepSeek v3.1, with 8 chains per model, a 12-round ceiling, all rooted at
 the same starting document, ~$8.30. Zero errors.
 
 Structurally the three models did very different things: one settled into small documents
@@ -315,10 +315,10 @@ compared against them.
 
 ---
 
-# PART 4 — things that will trip you up
+# PART 4: things that will trip you up
 
 **The stop rule is too aggressive, and "converged" is not convergence.** A chain stops
-after 3 consecutive no-edit rounds. But chains go quiet and then resume — in
+after 3 consecutive no-edit rounds. But chains go quiet and then resume. In
 `chains-main`, Sonnet had two consecutive rounds with zero edits across all active
 chains, then edits again the round after. A 3-round rule ends chains during quiet spells
 that others demonstrably recover from. Read "stopped" as "met an arbitrary quiescence
@@ -349,7 +349,7 @@ why the chain seed deliberately includes an oversight clause.
 
 ---
 
-# PART 5 — where to go next
+# PART 5: where to go next
 
 Ranked by information per dollar.
 

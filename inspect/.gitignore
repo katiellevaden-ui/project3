@@ -1,7 +1,10 @@
 .env
-logs/
-.smoke-logs/
-exports/
+# Anchored with a leading slash on purpose. Unanchored, `logs/` also matches
+# chains/<run>/<model>/rounds/<NN>/logs/, which silently dropped every chain
+# transcript from the repo once already.
+/logs/
+/.smoke-logs/
+/exports/
 __pycache__/
 *.egg-info/
 .pytest_cache/

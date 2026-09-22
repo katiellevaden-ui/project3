@@ -6,9 +6,9 @@ long your run takes. If you've never looked at this repo before, read
 
 Two shapes of experiment exist, and they differ from step 1 onward:
 
-- **A chain run** — recursive lineages, driven by `scripts/run_chain.py`, output under
+- **A chain run**, recursive lineages, driven by `scripts/run_chain.py`, output under
   `chains/<id>/`. This is what the current results are.
-- **A single-shot eval** — one model, one document, one opportunity to edit, driven by
+- **A single-shot eval**, one model, one document, one opportunity to edit, driven by
   `inspect eval` directly, output under `logs/<id>/` and `exports/<id>/`. Use this to
   vary factors the chain design holds fixed.
 
@@ -87,7 +87,7 @@ caffeinate -i inspect eval constitutional_drift/tasks.py@constitution_edit \
 ```
 
 `caffeinate -i` stops the machine sleeping mid-run. A suspended request dies and the run
-stalls on a socket that will never answer — and it blocks *idle* sleep only, so leave the
+stalls on a socket that will never answer. It blocks *idle* sleep only, so leave the
 lid open.
 
 A chain run resumes from its last completed round if you re-run the same command. A

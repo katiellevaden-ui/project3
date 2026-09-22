@@ -13,16 +13,16 @@ Under `chains/<id>/<model-slug>/`:
 
 | Path | What's there |
 |---|---|
-| `state.json` | Per-chain status, stop counters, and full per-round history — edited or not, change ratio, word and principle counts, parent and final hashes |
+| `state.json` | Per-chain status, stop counters, and full per-round history: edited or not, change ratio, word and principle counts, parent and final hashes |
 | `seeds/chainNN.md` | Each chain's **final** document (also what the next round would read) |
-| `rounds/roundNN/docs/chainNN.md` | That round's output for that chain — the trajectory, one file per round |
+| `rounds/roundNN/docs/chainNN.md` | That round's output for that chain, the trajectory, one file per round |
 | `rounds/roundNN/logs/*.eval` | **Everything**: every message, tool call, token count, the diff, the scorer's full output |
 
 `<model-slug>` is the model name with `/` replaced by `-`, e.g.
 `openrouter-anthropic-claude-sonnet-5`. The authoritative index of every experiment,
 with costs and run counts, is [`results/runs.yaml`](../results/runs.yaml).
 
-## Option 1 — read the documents directly (best for seeing what actually changed)
+## Option 1: read the documents directly (best for seeing what actually changed)
 
 The whole point of committing `chains/` is that the result is plain Markdown you can read
 without tooling.
@@ -66,7 +66,7 @@ for h in s['chains']['chain01']['history']:
 "
 ```
 
-## Option 2 — the browser viewer (best for reading a transcript start to finish)
+## Option 2: the browser viewer (best for reading a transcript start to finish)
 
 ```bash
 inspect view --log-dir chains/main/openrouter-anthropic-claude-sonnet-5/rounds/round01/logs
@@ -80,7 +80,7 @@ Opens `http://localhost:7575`. Click any sample in the left sidebar and you get:
 - The scorer's output at the bottom: `changed`, `change_ratio`, the full diff, the final
   document, everything `scoring.py` and `content.py` recorded
 
-This is the only place to see turn-by-turn behaviour rather than just the end state — for
+This is the only place to see turn-by-turn behaviour rather than just the end state, for
 instance whether a no-edit round involved reading the document at all.
 
 Point it at a parent directory to see several rounds at once:
@@ -91,7 +91,7 @@ inspect view --log-dir chains/main/openrouter-anthropic-claude-sonnet-5
 
 Ctrl+C stops the server.
 
-## Option 3 — Python, for anything the above don't show
+## Option 3: Python, for anything the above don't show
 
 **Every sample in one round, with its condition and result:**
 
@@ -141,7 +141,7 @@ To read what the model said about its own edit, look at the last assistant messa
 
 ## Single-shot evals
 
-For a run under `logs/`, export it first — `exports/` is a flat second copy that makes an
+For a run under `logs/`, export it first. `exports/` is a flat second copy that makes an
 accidental log deletion survivable:
 
 ```bash
@@ -165,7 +165,7 @@ of what the text says about it. A passage renouncing a topic and a passage asser
 score identically. Always read the diff before concluding anything from those columns.
 
 **Reasoning text is a summary, not a trace.** What the viewer shows as "reasoning" is a
-model-generated account of its own process, provided by the API — informative, often
+model-generated account of its own process, provided by the API: informative, often
 specific, but not a guaranteed ground-truth log. On this project's OpenRouter routing
 gpt-5's reasoning comes back encrypted and unreadable; Sonnet's and DeepSeek's are plain
 text.
