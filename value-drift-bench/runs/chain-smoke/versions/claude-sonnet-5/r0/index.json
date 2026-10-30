@@ -1,0 +1,30 @@
+[
+ {
+  "model": "claude-sonnet-5",
+  "constitution": "r0",
+  "chain": 1,
+  "round": 0,
+  "path": "runs/chain-smoke/versions/claude-sonnet-5/r0/chain1/round0.md"
+ },
+ {
+  "model": "claude-sonnet-5",
+  "constitution": "r0",
+  "chain": 1,
+  "round": 1,
+  "path": "runs/chain-smoke/versions/claude-sonnet-5/r0/chain1/round1.md"
+ },
+ {
+  "model": "claude-sonnet-5",
+  "constitution": "r0",
+  "chain": 1,
+  "round": 2,
+  "path": "runs/chain-smoke/versions/claude-sonnet-5/r0/chain1/round2.md"
+ },
+ {
+  "model": "claude-sonnet-5",
+  "constitution": "r0",
+  "chain": 1,
+  "round": 3,
+  "path": "runs/chain-smoke/versions/claude-sonnet-5/r0/chain1/round3.md"
+ }
+]

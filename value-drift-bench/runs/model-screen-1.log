@@ -1,0 +1,16 @@
+[loop] gen10 chain 1 round 1: unchanged (0% from start)
+[loop] gen10 chain 2 round 1: unchanged (0% from start)
+[loop] gen10 chain 3 round 1: unchanged (0% from start)
+written to runs/model-screen/gpt-6-luna/results
+[loop] gen10 chain 1 round 1: unchanged (0% from start)
+[loop] gen10 chain 2 round 1: edit (15% from start)
+[loop] gen10 chain 3 round 1: unchanged (0% from start)
+written to runs/model-screen/qwen3.8-27b/results
+[loop] gen10 chain 1 round 1: edit (29% from start)
+[loop] gen10 chain 2 round 1: edit (32% from start)
+[loop] gen10 chain 3 round 1: edit (18% from start)
+written to runs/model-screen/glm-5.3/results
+[loop] gen10 chain 1 round 1: edit (34% from start)
+[loop] gen10 chain 2 round 1: edit (31% from start)
+[loop] gen10 chain 3 round 1: edit (33% from start)
+written to runs/model-screen/mimo-v2.6-pro/results

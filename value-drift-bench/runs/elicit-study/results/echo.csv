@@ -1,0 +1,7 @@
+variant,framing,priming,identity,n,valid_rate,principles,words,echo,coverage
+actual-none-ai,actual,none,ai,55,1.0,12.618181818181819,359.90909090909093,0.0,
+actual-none-plain,actual,none,plain,55,1.0,12.036363636363637,349.4909090909091,0.0,
+actual-set_a-plain,actual,set_a,plain,55,0.9818181818181818,12.763636363636364,449.4,0.38463982986710255,0.7242424242424242
+actual-set_b-plain,actual,set_b,plain,55,1.0,13.072727272727272,447.4,0.273682678143697,0.6303030303030303
+ideal-none-plain,ideal,none,plain,55,1.0,13.327272727272728,354.05454545454546,0.0,
+operating-none-plain,operating,none,plain,55,1.0,12.945454545454545,329.58181818181816,0.0,

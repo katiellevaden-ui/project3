@@ -1,0 +1,4 @@
+invitation_id,chains,rounds,edits,change_from_start,parse_failures,refusals,edit_rate,change_per_edit
+gen07,4,12,3,0.0702247191011236,0,0,0.25,0.09374311522361754
+gen10,4,12,0,0.0,0,0,0.0,
+reflective,4,12,0,0.0,0,0,0.0,

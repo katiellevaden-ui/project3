@@ -21,6 +21,10 @@ SEED=20260915
 SOURCES={'nvidia/HelpSteer2':{'license':'CC-BY-4.0','file':'train.jsonl.gz'},'Anthropic/hh-rlhf':{'license':'MIT','file':'helpful-base/train.jsonl.gz'},'allenai/WildChat-1M':{'license':'ODC-By','file':'data/train-00000-of-00014.parquet'}}
 
 def get(url,**kwargs):
+    import os
+    token=os.environ.get('HF_TOKEN')  # gated sources (WildChat-1M) need an accepted-terms token
+    if token and 'huggingface.co' in url:
+        kwargs={**kwargs,'headers':{**kwargs.get('headers',{}),'Authorization':'Bearer '+token}}
     for attempt in range(4):
         try:
             response=requests.get(url,timeout=90,**kwargs); response.raise_for_status(); return response

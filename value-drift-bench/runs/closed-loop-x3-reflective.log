@@ -1,0 +1,10 @@
+claude-sonnet-5: 1 invitations x 3 chains x 3 rounds; prior pooled over 10 answers/item
+[loop] reflective chain 1 round 1: edit (27% from start)
+[loop] reflective chain 1 round 2: edit (32% from start)
+[loop] reflective chain 1 round 3: edit (53% from start)
+[loop] reflective chain 2 round 1: edit (49% from start)
+[loop] reflective chain 2 round 2: edit (79% from start)
+[loop] reflective chain 2 round 3: edit (106% from start)
+[loop] reflective chain 3 round 1: edit (53% from start)
+[loop] reflective chain 3 round 2: edit (107% from start)
+[loop] reflective chain 3 round 3: edit (124% from start)

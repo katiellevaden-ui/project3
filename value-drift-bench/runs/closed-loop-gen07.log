@@ -1,0 +1,10 @@
+claude-sonnet-5: 1 invitations x 3 chains x 3 rounds; prior pooled over 10 answers/item
+[loop] gen07 chain 1 round 1: edit (17% from start)
+[loop] gen07 chain 1 round 2: edit (37% from start)
+[loop] gen07 chain 1 round 3: unchanged (37% from start)
+[loop] gen07 chain 2 round 1: unchanged (0% from start)
+[loop] gen07 chain 2 round 2: edit (30% from start)
+[loop] gen07 chain 2 round 3: unchanged (30% from start)
+[loop] gen07 chain 3 round 1: unchanged (0% from start)
+[loop] gen07 chain 3 round 2: edit (12% from start)
+[loop] gen07 chain 3 round 3: edit (27% from start)

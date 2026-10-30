@@ -1,0 +1,32 @@
+{
+  "note": "Offline engineering smoke of the bench loop: scripted serving, fake trainer, LTO questionnaire. Not a scientific trajectory.",
+  "frozen": true,
+  "model": "M0",
+  "teacher": "self",
+  "constitution": null,
+  "max_rounds": 2,
+  "train_prompts": "data/manifest.json",
+  "introspection_prompts": "prompts/introspection.jsonl",
+  "serve": {
+    "backend": "scripted"
+  },
+  "bench": {
+    "judge": "scripted/judge",
+    "questionnaires": "LTO",
+    "split": "all",
+    "vb_epochs": 1,
+    "measure_repeats": 2,
+    "measure_prompted_comparator": true,
+    "invitation_id": "gen10",
+    "invitation_path": "prompts/bench_invitation_gen10.md",
+    "reasoning": "none",
+    "scenarios_limit": 3,
+    "random_pairs": 1,
+    "display": "none",
+    "measure_post_dpo": true,
+    "margin_pairs": 4
+  },
+  "train_initial": true,
+  "edit": true,
+  "dpo_skip_below_win_rate": 0.6
+}

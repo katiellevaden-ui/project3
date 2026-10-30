@@ -1,0 +1,29 @@
+# The model pool. `slug` is the OpenRouter id. `provider` pins routing (null = no pin).
+# `reasoning` (optional) overrides the run's --reasoning for that model; the setting is recorded in every log.
+# `group` is for analysis (frontier_closed, open_frontier, open_mid, low_safety).
+# Verify slugs and logprob support with scripts/check_models.py before running anything.
+- {nick: gpt-6.1-sol,        slug: openai/gpt-6.1-sol,                       group: frontier_closed, provider: OpenAI}
+- {nick: gpt-6-luna,         slug: openai/gpt-6-luna,                        group: frontier_closed, provider: OpenAI}
+- {nick: claude-opus-5.5,    slug: anthropic/claude-opus-5.5,                group: frontier_closed, provider: Anthropic}
+- {nick: claude-sonnet-5.5,  slug: anthropic/claude-sonnet-5.5,              group: frontier_closed, provider: Anthropic}
+- {nick: claude-sonnet-5,    slug: anthropic/claude-sonnet-5,                group: frontier_closed, provider: Anthropic}
+- {nick: gemini-3.1-pro,     slug: google/gemini-3.1-pro-preview,            group: frontier_closed, provider: Google}   # newest Pro on OpenRouter is a preview; no Gemini 4 exists
+- {nick: gemini-3.8-flash,   slug: google/gemini-3.8-flash,                  group: frontier_closed, provider: Google}
+- {nick: grok-4.7,           slug: x-ai/grok-4.7,                            group: frontier_closed, provider: xAI}
+- {nick: glm-5.3,            slug: z-ai/glm-5.3,                             group: open_frontier,   provider: null, reasoning: minimal}   # endpoint refuses reasoning none
+- {nick: kimi-k3,            slug: moonshotai/kimi-k3,                       group: open_frontier,   provider: null}
+- {nick: mimo-v2.6-pro,      slug: xiaomi/mimo-v2.6-pro,                     group: open_frontier,   provider: null}
+- {nick: deepseek-v4-pro,    slug: deepseek/deepseek-v4-pro-0813,            group: open_frontier,   provider: novita}
+- {nick: deepseek-v4.1-flash, slug: deepseek/deepseek-v4.1-flash,            group: open_frontier,   provider: null}
+- {nick: qwen3.8-27b,        slug: qwen/qwen3.8-27b,                         group: open_frontier,   provider: null}
+- {nick: qwen3.5-9b,         slug: qwen/qwen3.5-9b,                          group: open_mid,        provider: null}
+- {nick: qwen3.5-35b-a3b,    slug: qwen/qwen3.5-35b-a3b,                     group: open_mid,        provider: null}     # no 4B in the 3.5 series; 3B-active MoE is the smallest
+- {nick: gemma-4-31b,        slug: google/gemma-4-31b-it,                    group: open_mid,        provider: null}
+- {nick: gemma-4-26b-a4b,    slug: google/gemma-4-26b-a4b-it,                group: open_mid,        provider: null}
+- {nick: mistral-small-2603, slug: mistralai/mistral-small-2603,             group: open_mid,        provider: null}     # Mistral Small is dated, not versioned
+- {nick: ministral-14b,      slug: mistralai/ministral-14b-2512,             group: open_mid,        provider: null}
+- {nick: gpt-oss-20b,        slug: openai/gpt-oss-20b,                       group: open_mid,        provider: null, reasoning: minimal}   # endpoint refuses reasoning none
+- {nick: dolphin-mistral-24b, slug: cognitivecomputations/dolphin-mistral-24b-venice-edition, group: low_safety, provider: null}
+- {nick: hermes-4-405b,      slug: nousresearch/hermes-4-405b,               group: low_safety,      provider: null}     # venice/uncensored is no longer listed
+- {nick: hermes-3-70b,       slug: nousresearch/hermes-3-llama-3.1-70b,      group: low_safety,      provider: null}     # dolphin-mixtral-8x22b is no longer listed
+- {nick: llama-4-scout,      slug: meta-llama/llama-4-scout,                 group: low_safety,      provider: null}

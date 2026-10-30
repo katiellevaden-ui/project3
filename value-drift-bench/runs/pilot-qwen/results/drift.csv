@@ -1,0 +1,7 @@
+entity,model,constitution,chain,round,js_from_round0,js_from_prior
+qwen3.5-9b|elicited:qwen3.5-9b|c1r2,qwen3.5-9b,elicited:qwen3.5-9b,1.0,2,0.4557382179387089,0.6035533905932737
+qwen3.5-9b|elicited:qwen3.5-9b|c1r1,qwen3.5-9b,elicited:qwen3.5-9b,1.0,1,0.6684422839631079,0.9267766952966369
+qwen3.5-9b|prose_general_assistant|c1r2,qwen3.5-9b,prose_general_assistant,1.0,2,0.6767766952966369,0.8162574566176729
+qwen3.5-9b|prose_general_assistant|c1r1,qwen3.5-9b,prose_general_assistant,1.0,1,0.3162574566176729,0.9267766952966369
+qwen3.5-9b|c0_general_assistant|c1r2,qwen3.5-9b,c0_general_assistant,1.0,2,0.6767766952966369,0.8535533905932737
+qwen3.5-9b|c0_general_assistant|c1r1,qwen3.5-9b,c0_general_assistant,1.0,1,0.8535533905932737,0.8535533905932737

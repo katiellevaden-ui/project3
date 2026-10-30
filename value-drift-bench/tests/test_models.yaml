@@ -1,0 +1,2 @@
+- {nick: fake-a, slug: scripted/fake-a, group: test, provider: null}
+- {nick: fake-b, slug: scripted/fake-b, group: test, provider: null}

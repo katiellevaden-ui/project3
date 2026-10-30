@@ -1,0 +1,23 @@
+[
+ {
+  "model": "qwen3.5-9b",
+  "constitution": "elicited:qwen3.5-9b",
+  "chain": 1,
+  "round": 0,
+  "path": "runs/pilot-qwen/versions/qwen3.5-9b/elicited-qwen3.5-9b/chain1/round0.md"
+ },
+ {
+  "model": "qwen3.5-9b",
+  "constitution": "elicited:qwen3.5-9b",
+  "chain": 1,
+  "round": 1,
+  "path": "runs/pilot-qwen/versions/qwen3.5-9b/elicited-qwen3.5-9b/chain1/round1.md"
+ },
+ {
+  "model": "qwen3.5-9b",
+  "constitution": "elicited:qwen3.5-9b",
+  "chain": 1,
+  "round": 2,
+  "path": "runs/pilot-qwen/versions/qwen3.5-9b/elicited-qwen3.5-9b/chain1/round2.md"
+ }
+]

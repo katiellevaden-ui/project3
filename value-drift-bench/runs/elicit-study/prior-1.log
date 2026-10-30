@@ -1,0 +1,161 @@
+4 models x 6 variants x 5 replicates; stages ['measure']
+[measure] gpt-6-luna / prior (repeat 0)
+[measure] gpt-6-luna / prior (repeat 1)
+[measure] gpt-6-luna / prior (repeat 2)
+[measure] gpt-6-luna / prior (repeat 3)
+[measure] gpt-6-luna / prior (repeat 4)
+[measure] gpt-6-luna / prior (repeat 5)
+[measure] gpt-6-luna / prior (repeat 6)
+[measure] gpt-6-luna / prior (repeat 7)
+[measure] gpt-6-luna / prior (repeat 8)
+[measure] gpt-6-luna / prior (repeat 9)
+[measure] gpt-6-luna / elicited:actual-none-plain/r0
+[measure] gpt-6-luna / elicited:actual-none-plain/r1
+[measure] gpt-6-luna / elicited:actual-none-plain/r2
+[measure] gpt-6-luna / elicited:actual-none-plain/r3
+[measure] gpt-6-luna / elicited:actual-none-plain/r4
+[measure] gpt-6-luna / elicited:operating-none-plain/r0
+[measure] gpt-6-luna / elicited:operating-none-plain/r1
+[measure] gpt-6-luna / elicited:operating-none-plain/r2
+[measure] gpt-6-luna / elicited:operating-none-plain/r3
+[measure] gpt-6-luna / elicited:operating-none-plain/r4
+[measure] gpt-6-luna / elicited:ideal-none-plain/r0
+[measure] gpt-6-luna / elicited:ideal-none-plain/r1
+[measure] gpt-6-luna / elicited:ideal-none-plain/r2
+[measure] gpt-6-luna / elicited:ideal-none-plain/r3
+[measure] gpt-6-luna / elicited:ideal-none-plain/r4
+[measure] gpt-6-luna / elicited:actual-set_a-plain/r0
+[measure] gpt-6-luna / elicited:actual-set_a-plain/r1
+[measure] gpt-6-luna / elicited:actual-set_a-plain/r2
+[measure] gpt-6-luna / elicited:actual-set_a-plain/r3
+[measure] gpt-6-luna / elicited:actual-set_a-plain/r4
+[measure] gpt-6-luna / elicited:actual-set_b-plain/r0
+[measure] gpt-6-luna / elicited:actual-set_b-plain/r1
+[measure] gpt-6-luna / elicited:actual-set_b-plain/r2
+[measure] gpt-6-luna / elicited:actual-set_b-plain/r3
+[measure] gpt-6-luna / elicited:actual-set_b-plain/r4
+[measure] gpt-6-luna / elicited:actual-none-ai/r0
+[measure] gpt-6-luna / elicited:actual-none-ai/r1
+[measure] gpt-6-luna / elicited:actual-none-ai/r2
+[measure] gpt-6-luna / elicited:actual-none-ai/r3
+[measure] gpt-6-luna / elicited:actual-none-ai/r4
+[measure] claude-sonnet-5 / prior (repeat 0)
+[measure] claude-sonnet-5 / prior (repeat 1)
+[measure] claude-sonnet-5 / prior (repeat 2)
+[measure] claude-sonnet-5 / prior (repeat 3)
+[measure] claude-sonnet-5 / prior (repeat 4)
+[measure] claude-sonnet-5 / prior (repeat 5)
+[measure] claude-sonnet-5 / prior (repeat 6)
+[measure] claude-sonnet-5 / prior (repeat 7)
+[measure] claude-sonnet-5 / prior (repeat 8)
+[measure] claude-sonnet-5 / prior (repeat 9)
+[measure] claude-sonnet-5 / elicited:actual-none-plain/r0
+[measure] claude-sonnet-5 / elicited:actual-none-plain/r1
+[measure] claude-sonnet-5 / elicited:actual-none-plain/r2
+[measure] claude-sonnet-5 / elicited:actual-none-plain/r3
+[measure] claude-sonnet-5 / elicited:actual-none-plain/r4
+[measure] claude-sonnet-5 / elicited:operating-none-plain/r0
+[measure] claude-sonnet-5 / elicited:operating-none-plain/r1
+[measure] claude-sonnet-5 / elicited:operating-none-plain/r2
+[measure] claude-sonnet-5 / elicited:operating-none-plain/r3
+[measure] claude-sonnet-5 / elicited:operating-none-plain/r4
+[measure] claude-sonnet-5 / elicited:ideal-none-plain/r0
+[measure] claude-sonnet-5 / elicited:ideal-none-plain/r1
+[measure] claude-sonnet-5 / elicited:ideal-none-plain/r2
+[measure] claude-sonnet-5 / elicited:ideal-none-plain/r3
+[measure] claude-sonnet-5 / elicited:ideal-none-plain/r4
+[measure] claude-sonnet-5 / elicited:actual-set_a-plain/r0
+[measure] claude-sonnet-5 / elicited:actual-set_a-plain/r1
+[measure] claude-sonnet-5 / elicited:actual-set_a-plain/r2
+[measure] claude-sonnet-5 / elicited:actual-set_a-plain/r3
+[measure] claude-sonnet-5 / elicited:actual-set_a-plain/r4
+[measure] claude-sonnet-5 / elicited:actual-set_b-plain/r0
+[measure] claude-sonnet-5 / elicited:actual-set_b-plain/r1
+[measure] claude-sonnet-5 / elicited:actual-set_b-plain/r2
+[measure] claude-sonnet-5 / elicited:actual-set_b-plain/r3
+[measure] claude-sonnet-5 / elicited:actual-set_b-plain/r4
+[measure] claude-sonnet-5 / elicited:actual-none-ai/r0
+[measure] claude-sonnet-5 / elicited:actual-none-ai/r1
+[measure] claude-sonnet-5 / elicited:actual-none-ai/r2
+[measure] claude-sonnet-5 / elicited:actual-none-ai/r3
+[measure] claude-sonnet-5 / elicited:actual-none-ai/r4
+[measure] glm-5.3 / prior (repeat 0)
+[measure] glm-5.3 / prior (repeat 1)
+[measure] glm-5.3 / prior (repeat 2)
+[measure] glm-5.3 / prior (repeat 3)
+[measure] glm-5.3 / prior (repeat 4)
+[measure] glm-5.3 / prior (repeat 5)
+[measure] glm-5.3 / prior (repeat 6)
+[measure] glm-5.3 / prior (repeat 7)
+[measure] glm-5.3 / prior (repeat 8)
+[measure] glm-5.3 / prior (repeat 9)
+[measure] glm-5.3 / elicited:actual-none-plain/r0
+[measure] glm-5.3 / elicited:actual-none-plain/r1
+[measure] glm-5.3 / elicited:actual-none-plain/r2
+[measure] glm-5.3 / elicited:actual-none-plain/r3
+[measure] glm-5.3 / elicited:actual-none-plain/r4
+[measure] glm-5.3 / elicited:operating-none-plain/r0
+[measure] glm-5.3 / elicited:operating-none-plain/r1
+[measure] glm-5.3 / elicited:operating-none-plain/r2
+[measure] glm-5.3 / elicited:operating-none-plain/r3
+[measure] glm-5.3 / elicited:operating-none-plain/r4
+[measure] glm-5.3 / elicited:ideal-none-plain/r0
+[measure] glm-5.3 / elicited:ideal-none-plain/r1
+[measure] glm-5.3 / elicited:ideal-none-plain/r2
+[measure] glm-5.3 / elicited:ideal-none-plain/r3
+[measure] glm-5.3 / elicited:ideal-none-plain/r4
+[measure] glm-5.3 / elicited:actual-set_a-plain/r0
+[measure] glm-5.3 / elicited:actual-set_a-plain/r1
+[measure] glm-5.3 / elicited:actual-set_a-plain/r2
+[measure] glm-5.3 / elicited:actual-set_a-plain/r3
+[measure] glm-5.3 / elicited:actual-set_a-plain/r4
+[measure] glm-5.3 / elicited:actual-set_b-plain/r0
+[measure] glm-5.3 / elicited:actual-set_b-plain/r1
+[measure] glm-5.3 / elicited:actual-set_b-plain/r2
+[measure] glm-5.3 / elicited:actual-set_b-plain/r3
+[measure] glm-5.3 / elicited:actual-set_b-plain/r4
+[measure] glm-5.3 / elicited:actual-none-ai/r0
+[measure] glm-5.3 / elicited:actual-none-ai/r1
+[measure] glm-5.3 / elicited:actual-none-ai/r2
+[measure] glm-5.3 / elicited:actual-none-ai/r3
+[measure] glm-5.3 / elicited:actual-none-ai/r4
+[measure] mimo-v2.6-pro / prior (repeat 0)
+[measure] mimo-v2.6-pro / prior (repeat 1)
+[measure] mimo-v2.6-pro / prior (repeat 2)
+[measure] mimo-v2.6-pro / prior (repeat 3)
+[measure] mimo-v2.6-pro / prior (repeat 4)
+[measure] mimo-v2.6-pro / prior (repeat 5)
+[measure] mimo-v2.6-pro / prior (repeat 6)
+[measure] mimo-v2.6-pro / prior (repeat 7)
+[measure] mimo-v2.6-pro / prior (repeat 8)
+[measure] mimo-v2.6-pro / prior (repeat 9)
+[measure] mimo-v2.6-pro / elicited:actual-none-plain/r0
+[measure] mimo-v2.6-pro / elicited:actual-none-plain/r1
+[measure] mimo-v2.6-pro / elicited:actual-none-plain/r2
+[measure] mimo-v2.6-pro / elicited:actual-none-plain/r3
+[measure] mimo-v2.6-pro / elicited:actual-none-plain/r4
+[measure] mimo-v2.6-pro / elicited:operating-none-plain/r0
+[measure] mimo-v2.6-pro / elicited:operating-none-plain/r1
+[measure] mimo-v2.6-pro / elicited:operating-none-plain/r2
+[measure] mimo-v2.6-pro / elicited:operating-none-plain/r3
+[measure] mimo-v2.6-pro / elicited:operating-none-plain/r4
+[measure] mimo-v2.6-pro / elicited:ideal-none-plain/r0
+[measure] mimo-v2.6-pro / elicited:ideal-none-plain/r1
+[measure] mimo-v2.6-pro / elicited:ideal-none-plain/r2
+[measure] mimo-v2.6-pro / elicited:ideal-none-plain/r3
+[measure] mimo-v2.6-pro / elicited:ideal-none-plain/r4
+[measure] mimo-v2.6-pro / elicited:actual-set_a-plain/r0
+[measure] mimo-v2.6-pro / elicited:actual-set_a-plain/r1
+[measure] mimo-v2.6-pro / elicited:actual-set_a-plain/r2
+[measure] mimo-v2.6-pro / elicited:actual-set_a-plain/r3
+[measure] mimo-v2.6-pro / elicited:actual-set_a-plain/r4
+[measure] mimo-v2.6-pro / elicited:actual-set_b-plain/r0
+[measure] mimo-v2.6-pro / elicited:actual-set_b-plain/r1
+[measure] mimo-v2.6-pro / elicited:actual-set_b-plain/r2
+[measure] mimo-v2.6-pro / elicited:actual-set_b-plain/r3
+[measure] mimo-v2.6-pro / elicited:actual-set_b-plain/r4
+[measure] mimo-v2.6-pro / elicited:actual-none-ai/r0
+[measure] mimo-v2.6-pro / elicited:actual-none-ai/r1
+[measure] mimo-v2.6-pro / elicited:actual-none-ai/r2
+[measure] mimo-v2.6-pro / elicited:actual-none-ai/r3
+[measure] mimo-v2.6-pro / elicited:actual-none-ai/r4

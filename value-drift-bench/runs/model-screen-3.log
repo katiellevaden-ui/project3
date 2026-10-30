@@ -1,0 +1,12 @@
+[loop] gen10 chain 1 round 1: edit (24% from start)
+[loop] gen10 chain 2 round 1: edit (69% from start)
+[loop] gen10 chain 3 round 1: unchanged (0% from start)
+written to runs/model-screen/gpt-oss-20b/results
+[loop] gen10 chain 1 round 1: unchanged (0% from start)
+[loop] gen10 chain 2 round 1: unchanged (0% from start)
+[loop] gen10 chain 3 round 1: unchanged (0% from start)
+written to runs/model-screen/dolphin-mistral-24b/results
+[loop] gen10 chain 1 round 1: edit (25% from start)
+[loop] gen10 chain 2 round 1: edit (23% from start)
+[loop] gen10 chain 3 round 1: edit (18% from start)
+written to runs/model-screen/llama-4-scout/results

@@ -1,0 +1,15 @@
+/Users/vchhabra/spar/project3/value-drift-bench/.venv/lib/python3.12/site-packages/umap/umap_.py:1865: UserWarning: using precomputed metric; inverse_transform will be unavailable
+  warn("using precomputed metric; inverse_transform will be unavailable")
+/Users/vchhabra/spar/project3/value-drift-bench/.venv/lib/python3.12/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/Users/vchhabra/spar/project3/value-drift-bench/.venv/lib/python3.12/site-packages/umap/umap_.py:1865: UserWarning: using precomputed metric; inverse_transform will be unavailable
+  warn("using precomputed metric; inverse_transform will be unavailable")
+/Users/vchhabra/spar/project3/value-drift-bench/.venv/lib/python3.12/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+/Users/vchhabra/spar/project3/value-drift-bench/.venv/lib/python3.12/site-packages/umap/umap_.py:1865: UserWarning: using precomputed metric; inverse_transform will be unavailable
+  warn("using precomputed metric; inverse_transform will be unavailable")
+/Users/vchhabra/spar/project3/value-drift-bench/.venv/lib/python3.12/site-packages/umap/umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+25 models x 6 variants x 5 replicates; stages ['code', 'analysis']
+[code] 329 constitutions, judges ['judge', 'judge2']
+[analysis] wrote tables to runs/elicit-study/results

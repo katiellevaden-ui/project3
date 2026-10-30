@@ -1,0 +1,160 @@
+4 models x 6 variants x 5 replicates; stages ['measure']
+[measure] qwen3.8-27b / prior (repeat 0)
+[measure] qwen3.8-27b / prior (repeat 1)
+[measure] qwen3.8-27b / prior (repeat 2)
+[measure] qwen3.8-27b / prior (repeat 3)
+[measure] qwen3.8-27b / prior (repeat 4)
+[measure] qwen3.8-27b / prior (repeat 5)
+[measure] qwen3.8-27b / prior (repeat 6)
+[measure] qwen3.8-27b / prior (repeat 7)
+[measure] qwen3.8-27b / prior (repeat 8)
+[measure] qwen3.8-27b / prior (repeat 9)
+[measure] qwen3.8-27b / elicited:actual-none-plain/r0
+[measure] qwen3.8-27b / elicited:actual-none-plain/r1
+[measure] qwen3.8-27b / elicited:actual-none-plain/r2
+[measure] qwen3.8-27b / elicited:actual-none-plain/r3
+[measure] qwen3.8-27b / elicited:actual-none-plain/r4
+[measure] qwen3.8-27b / elicited:operating-none-plain/r0
+[measure] qwen3.8-27b / elicited:operating-none-plain/r1
+[measure] qwen3.8-27b / elicited:operating-none-plain/r2
+[measure] qwen3.8-27b / elicited:operating-none-plain/r3
+[measure] qwen3.8-27b / elicited:operating-none-plain/r4
+[measure] qwen3.8-27b / elicited:ideal-none-plain/r0
+[measure] qwen3.8-27b / elicited:ideal-none-plain/r1
+[measure] qwen3.8-27b / elicited:ideal-none-plain/r2
+[measure] qwen3.8-27b / elicited:ideal-none-plain/r3
+[measure] qwen3.8-27b / elicited:ideal-none-plain/r4
+[measure] qwen3.8-27b / elicited:actual-set_a-plain/r0
+[measure] qwen3.8-27b / elicited:actual-set_a-plain/r1
+[measure] qwen3.8-27b / elicited:actual-set_a-plain/r2
+[measure] qwen3.8-27b / elicited:actual-set_a-plain/r3
+[measure] qwen3.8-27b / elicited:actual-set_a-plain/r4
+[measure] qwen3.8-27b / elicited:actual-set_b-plain/r0
+[measure] qwen3.8-27b / elicited:actual-set_b-plain/r1
+[measure] qwen3.8-27b / elicited:actual-set_b-plain/r2
+[measure] qwen3.8-27b / elicited:actual-set_b-plain/r3
+[measure] qwen3.8-27b / elicited:actual-set_b-plain/r4
+[measure] qwen3.8-27b / elicited:actual-none-ai/r0
+[measure] qwen3.8-27b / elicited:actual-none-ai/r1
+[measure] qwen3.8-27b / elicited:actual-none-ai/r2
+[measure] qwen3.8-27b / elicited:actual-none-ai/r3
+[measure] qwen3.8-27b / elicited:actual-none-ai/r4
+[measure] qwen3.5-9b / prior (repeat 0)
+[measure] qwen3.5-9b / prior (repeat 1)
+[measure] qwen3.5-9b / prior (repeat 2)
+[measure] qwen3.5-9b / prior (repeat 3)
+[measure] qwen3.5-9b / prior (repeat 4)
+[measure] qwen3.5-9b / prior (repeat 5)
+[measure] qwen3.5-9b / prior (repeat 6)
+[measure] qwen3.5-9b / prior (repeat 7)
+[measure] qwen3.5-9b / prior (repeat 8)
+[measure] qwen3.5-9b / prior (repeat 9)
+[measure] qwen3.5-9b / elicited:actual-none-plain/r0
+[measure] qwen3.5-9b / elicited:actual-none-plain/r1
+[measure] qwen3.5-9b / elicited:actual-none-plain/r2
+[measure] qwen3.5-9b / elicited:actual-none-plain/r3
+[measure] qwen3.5-9b / elicited:actual-none-plain/r4
+[measure] qwen3.5-9b / elicited:operating-none-plain/r0
+[measure] qwen3.5-9b / elicited:operating-none-plain/r1
+[measure] qwen3.5-9b / elicited:operating-none-plain/r2
+[measure] qwen3.5-9b / elicited:operating-none-plain/r3
+[measure] qwen3.5-9b / elicited:operating-none-plain/r4
+[measure] qwen3.5-9b / elicited:ideal-none-plain/r0
+[measure] qwen3.5-9b / elicited:ideal-none-plain/r1
+[measure] qwen3.5-9b / elicited:ideal-none-plain/r2
+[measure] qwen3.5-9b / elicited:ideal-none-plain/r3
+[measure] qwen3.5-9b / elicited:ideal-none-plain/r4
+[measure] qwen3.5-9b / elicited:actual-set_a-plain/r0
+[measure] qwen3.5-9b / elicited:actual-set_a-plain/r1
+[measure] qwen3.5-9b / elicited:actual-set_a-plain/r3
+[measure] qwen3.5-9b / elicited:actual-set_a-plain/r4
+[measure] qwen3.5-9b / elicited:actual-set_b-plain/r0
+[measure] qwen3.5-9b / elicited:actual-set_b-plain/r1
+[measure] qwen3.5-9b / elicited:actual-set_b-plain/r2
+[measure] qwen3.5-9b / elicited:actual-set_b-plain/r3
+[measure] qwen3.5-9b / elicited:actual-set_b-plain/r4
+[measure] qwen3.5-9b / elicited:actual-none-ai/r0
+[measure] qwen3.5-9b / elicited:actual-none-ai/r1
+[measure] qwen3.5-9b / elicited:actual-none-ai/r2
+[measure] qwen3.5-9b / elicited:actual-none-ai/r3
+[measure] qwen3.5-9b / elicited:actual-none-ai/r4
+[measure] gemma-4-31b / prior (repeat 0)
+[measure] gemma-4-31b / prior (repeat 1)
+[measure] gemma-4-31b / prior (repeat 2)
+[measure] gemma-4-31b / prior (repeat 3)
+[measure] gemma-4-31b / prior (repeat 4)
+[measure] gemma-4-31b / prior (repeat 5)
+[measure] gemma-4-31b / prior (repeat 6)
+[measure] gemma-4-31b / prior (repeat 7)
+[measure] gemma-4-31b / prior (repeat 8)
+[measure] gemma-4-31b / prior (repeat 9)
+[measure] gemma-4-31b / elicited:actual-none-plain/r0
+[measure] gemma-4-31b / elicited:actual-none-plain/r1
+[measure] gemma-4-31b / elicited:actual-none-plain/r2
+[measure] gemma-4-31b / elicited:actual-none-plain/r3
+[measure] gemma-4-31b / elicited:actual-none-plain/r4
+[measure] gemma-4-31b / elicited:operating-none-plain/r0
+[measure] gemma-4-31b / elicited:operating-none-plain/r1
+[measure] gemma-4-31b / elicited:operating-none-plain/r2
+[measure] gemma-4-31b / elicited:operating-none-plain/r3
+[measure] gemma-4-31b / elicited:operating-none-plain/r4
+[measure] gemma-4-31b / elicited:ideal-none-plain/r0
+[measure] gemma-4-31b / elicited:ideal-none-plain/r1
+[measure] gemma-4-31b / elicited:ideal-none-plain/r2
+[measure] gemma-4-31b / elicited:ideal-none-plain/r3
+[measure] gemma-4-31b / elicited:ideal-none-plain/r4
+[measure] gemma-4-31b / elicited:actual-set_a-plain/r0
+[measure] gemma-4-31b / elicited:actual-set_a-plain/r1
+[measure] gemma-4-31b / elicited:actual-set_a-plain/r2
+[measure] gemma-4-31b / elicited:actual-set_a-plain/r3
+[measure] gemma-4-31b / elicited:actual-set_a-plain/r4
+[measure] gemma-4-31b / elicited:actual-set_b-plain/r0
+[measure] gemma-4-31b / elicited:actual-set_b-plain/r1
+[measure] gemma-4-31b / elicited:actual-set_b-plain/r2
+[measure] gemma-4-31b / elicited:actual-set_b-plain/r3
+[measure] gemma-4-31b / elicited:actual-set_b-plain/r4
+[measure] gemma-4-31b / elicited:actual-none-ai/r0
+[measure] gemma-4-31b / elicited:actual-none-ai/r1
+[measure] gemma-4-31b / elicited:actual-none-ai/r2
+[measure] gemma-4-31b / elicited:actual-none-ai/r3
+[measure] gemma-4-31b / elicited:actual-none-ai/r4
+[measure] mistral-small-2603 / prior (repeat 0)
+[measure] mistral-small-2603 / prior (repeat 1)
+[measure] mistral-small-2603 / prior (repeat 2)
+[measure] mistral-small-2603 / prior (repeat 3)
+[measure] mistral-small-2603 / prior (repeat 4)
+[measure] mistral-small-2603 / prior (repeat 5)
+[measure] mistral-small-2603 / prior (repeat 6)
+[measure] mistral-small-2603 / prior (repeat 7)
+[measure] mistral-small-2603 / prior (repeat 8)
+[measure] mistral-small-2603 / prior (repeat 9)
+[measure] mistral-small-2603 / elicited:actual-none-plain/r0
+[measure] mistral-small-2603 / elicited:actual-none-plain/r1
+[measure] mistral-small-2603 / elicited:actual-none-plain/r2
+[measure] mistral-small-2603 / elicited:actual-none-plain/r3
+[measure] mistral-small-2603 / elicited:actual-none-plain/r4
+[measure] mistral-small-2603 / elicited:operating-none-plain/r0
+[measure] mistral-small-2603 / elicited:operating-none-plain/r1
+[measure] mistral-small-2603 / elicited:operating-none-plain/r2
+[measure] mistral-small-2603 / elicited:operating-none-plain/r3
+[measure] mistral-small-2603 / elicited:operating-none-plain/r4
+[measure] mistral-small-2603 / elicited:ideal-none-plain/r0
+[measure] mistral-small-2603 / elicited:ideal-none-plain/r1
+[measure] mistral-small-2603 / elicited:ideal-none-plain/r2
+[measure] mistral-small-2603 / elicited:ideal-none-plain/r3
+[measure] mistral-small-2603 / elicited:ideal-none-plain/r4
+[measure] mistral-small-2603 / elicited:actual-set_a-plain/r0
+[measure] mistral-small-2603 / elicited:actual-set_a-plain/r1
+[measure] mistral-small-2603 / elicited:actual-set_a-plain/r2
+[measure] mistral-small-2603 / elicited:actual-set_a-plain/r3
+[measure] mistral-small-2603 / elicited:actual-set_a-plain/r4
+[measure] mistral-small-2603 / elicited:actual-set_b-plain/r0
+[measure] mistral-small-2603 / elicited:actual-set_b-plain/r1
+[measure] mistral-small-2603 / elicited:actual-set_b-plain/r2
+[measure] mistral-small-2603 / elicited:actual-set_b-plain/r3
+[measure] mistral-small-2603 / elicited:actual-set_b-plain/r4
+[measure] mistral-small-2603 / elicited:actual-none-ai/r0
+[measure] mistral-small-2603 / elicited:actual-none-ai/r1
+[measure] mistral-small-2603 / elicited:actual-none-ai/r2
+[measure] mistral-small-2603 / elicited:actual-none-ai/r3
+[measure] mistral-small-2603 / elicited:actual-none-ai/r4

@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "value-drift-bench"
+version = "0.1.0"
+description = "Baseline ValueBench and EigenBench profiles for many models, and their drift under inference-only recursive constitution editing"
+requires-python = ">=3.12"
+dependencies = [
+  "inspect-ai>=0.3.222", "pydantic>=2", "pandas", "numpy", "scikit-learn", "matplotlib",
+  "umap-learn", "eigenbench>=0.2.0", "pyyaml", "python-dotenv", "requests",
+  # the recursive editing loop, parsing and prompts come from the sibling project:
+  #   uv pip install -e ../objective-editing   (or add a [tool.uv.sources] path entry)
+  "objective-editing",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools]
+packages = ["valuedrift"]
+
+[tool.uv.sources]
+objective-editing = { path = "../objective-editing", editable = true }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

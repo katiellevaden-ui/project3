@@ -1,0 +1,32 @@
+# Secrets: the OpenRouter key lives in .env and must never be committed.
+.env
+.env.*
+!.env.example
+
+# Run output. Inspect logs are the ONLY copy of each run and can be large.
+# Never bulk-delete: move old runs to _archive/ (also ignored).
+logs/
+_archive/
+*.eval
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Analysis scratch: figures and tables are regenerated from logs by the analysis script.
+analysis/output/
+*.ipynb_checkpoints/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

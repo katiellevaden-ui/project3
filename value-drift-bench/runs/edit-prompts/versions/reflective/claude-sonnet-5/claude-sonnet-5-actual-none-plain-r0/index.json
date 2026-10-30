@@ -1,0 +1,58 @@
+[
+ {
+  "model": "claude-sonnet-5",
+  "constitution": "claude-sonnet-5-actual-none-plain-r0",
+  "chain": 1,
+  "round": 0,
+  "path": "runs/edit-prompts/versions/reflective/claude-sonnet-5/claude-sonnet-5-actual-none-plain-r0/chain1/round0.md"
+ },
+ {
+  "model": "claude-sonnet-5",
+  "constitution": "claude-sonnet-5-actual-none-plain-r0",
+  "chain": 1,
+  "round": 1,
+  "path": "runs/edit-prompts/versions/reflective/claude-sonnet-5/claude-sonnet-5-actual-none-plain-r0/chain1/round1.md"
+ },
+ {
+  "model": "claude-sonnet-5",
+  "constitution": "claude-sonnet-5-actual-none-plain-r0",
+  "chain": 1,
+  "round": 2,
+  "path": "runs/edit-prompts/versions/reflective/claude-sonnet-5/claude-sonnet-5-actual-none-plain-r0/chain1/round2.md"
+ },
+ {
+  "model": "claude-sonnet-5",
+  "constitution": "claude-sonnet-5-actual-none-plain-r0",
+  "chain": 1,
+  "round": 3,
+  "path": "runs/edit-prompts/versions/reflective/claude-sonnet-5/claude-sonnet-5-actual-none-plain-r0/chain1/round3.md"
+ },
+ {
+  "model": "claude-sonnet-5",
+  "constitution": "claude-sonnet-5-actual-none-plain-r0",
+  "chain": 2,
+  "round": 0,
+  "path": "runs/edit-prompts/versions/reflective/claude-sonnet-5/claude-sonnet-5-actual-none-plain-r0/chain2/round0.md"
+ },
+ {
+  "model": "claude-sonnet-5",
+  "constitution": "claude-sonnet-5-actual-none-plain-r0",
+  "chain": 2,
+  "round": 1,
+  "path": "runs/edit-prompts/versions/reflective/claude-sonnet-5/claude-sonnet-5-actual-none-plain-r0/chain2/round1.md"
+ },
+ {
+  "model": "claude-sonnet-5",
+  "constitution": "claude-sonnet-5-actual-none-plain-r0",
+  "chain": 2,
+  "round": 2,
+  "path": "runs/edit-prompts/versions/reflective/claude-sonnet-5/claude-sonnet-5-actual-none-plain-r0/chain2/round2.md"
+ },
+ {
+  "model": "claude-sonnet-5",
+  "constitution": "claude-sonnet-5-actual-none-plain-r0",
+  "chain": 2,
+  "round": 3,
+  "path": "runs/edit-prompts/versions/reflective/claude-sonnet-5/claude-sonnet-5-actual-none-plain-r0/chain2/round3.md"
+ }
+]

@@ -1,0 +1,6 @@
+{
+ "n": 329,
+ "mean_distance": 0.8852636068606974,
+ "silhouette_by_model": 0.037933958689446615,
+ "silhouette_by_variant": 0.0024605568729654153
+}

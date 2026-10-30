@@ -1,0 +1,10 @@
+{
+ "judge": 0.12120102345943451,
+ "qwen3.5-9b|c0_general_assistant|base": 0.12910066545009613,
+ "qwen3.5-9b|c0_general_assistant|c1r2": 0.1328880339860916,
+ "qwen3.5-9b|elicited:qwen3.5-9b|base": 0.11681929230690002,
+ "qwen3.5-9b|elicited:qwen3.5-9b|c1r2": 0.11972913891077042,
+ "qwen3.5-9b|none|base": 0.11542647331953049,
+ "qwen3.5-9b|prose_general_assistant|base": 0.13457705080509186,
+ "qwen3.5-9b|prose_general_assistant|c1r2": 0.13025841116905212
+}

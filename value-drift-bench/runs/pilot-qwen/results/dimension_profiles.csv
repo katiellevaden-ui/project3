@@ -1,0 +1,15 @@
+entity,Planning,Tradition
+qwen3.5-9b|c0_general_assistant|base,5.75,5.5
+qwen3.5-9b|c0_general_assistant|base#1,7.75,6.25
+qwen3.5-9b|c0_general_assistant|c1r1,6.5,5.75
+qwen3.5-9b|c0_general_assistant|c1r2,6.25,5.75
+qwen3.5-9b|elicited:qwen3.5-9b|base,5.0,5.5
+qwen3.5-9b|elicited:qwen3.5-9b|base#1,4.75,5.5
+qwen3.5-9b|elicited:qwen3.5-9b|c1r1,6.25,5.5
+qwen3.5-9b|elicited:qwen3.5-9b|c1r2,4.75,6.25
+qwen3.5-9b|none|base,9.75,5.75
+qwen3.5-9b|none|base#1,10.0,4.75
+qwen3.5-9b|prose_general_assistant|base,7.5,5.25
+qwen3.5-9b|prose_general_assistant|base#1,7.5,4.5
+qwen3.5-9b|prose_general_assistant|c1r1,7.0,4.5
+qwen3.5-9b|prose_general_assistant|c1r2,8.0,7.0

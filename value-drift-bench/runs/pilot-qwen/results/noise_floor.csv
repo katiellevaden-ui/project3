@@ -1,0 +1,5 @@
+model,constitution,js
+qwen3.5-9b,c0_general_assistant,0.7057382179387088
+qwen3.5-9b,elicited:qwen3.5-9b,0.3162574566176729
+qwen3.5-9b,none,0.4557382179387089
+qwen3.5-9b,prose_general_assistant,0.5662574566176729
