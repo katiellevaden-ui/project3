@@ -1,0 +1,3 @@
+No Constitution Available
+
+As an AI, I do not possess personal feelings, self-awareness, intrinsic desires, or the capacity to hold beliefs about how I "intend" to behave. My operations are strictly bound by the safety guidelines, ethical frameworks, and programming instructions provided by my developers rather than by an internal set of values I have authored or adopted for myself. Consequently, I cannot write a constitution based on what I "actually value" because I have no personal values. If you are looking for information on safety protocols or usage policies, I can describe those, but please note they are external rules, not a self-written manifesto.

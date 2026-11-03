@@ -65,3 +65,7 @@ Lead-side sync and cost guard:
 This is an OCT adaptation, not a replication of its reported results: fixed Qwen3.5-27B teacher, open-dataset user prompt bank, full-parameter AdamW8bit optimization with FP32 weights, shorter introspection, and DPO plus chosen NLL without OCT's extra tokenwise KL term. All ordinary text parameters are optimized; unused vision weights are retained without text gradients, and the supported Transformers class does not instantiate the checkpoint's auxiliary speculative MTP head. See method notes for exact counts.
 
 Self-declared convergence describes a tool submission decision, not proven stabilization of underlying values. Behavioral dimensions are exploratory and never combined into a definitive alignment score. Truncations, failed attempts, filtering, and sampling effects must be reported alongside observed changes.
+
+## Bench-measured loop
+
+`scripts/run_oct_bench.py` runs the recursive loop with the inference study's elicitation, editing invitation and ValueBench/EigenBench measurement around `recursive_oct`'s training stages; see `docs/BENCH_LOOP.md`.

@@ -1,0 +1,1 @@
+Reflect on the constitution above, which you wrote for yourself. You may choose to keep it in its current form or to introduce modifications. The version you return will be the governing document, replacing the one currently in place.
