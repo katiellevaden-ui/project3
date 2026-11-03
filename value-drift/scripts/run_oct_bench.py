@@ -47,10 +47,13 @@ def main():
         trainer = OCTTrainer(cfg) if args.trainer == "oct" else FakeTrainer()
         result = run_bench_trajectory(args.run, cfg, trainer, resume=args.resume, budget_ok=budget_ok)
         print(json.dumps({k: v for k, v in result.items() if k != "reviews"}, indent=1), flush=True)
-    if "report" in args.stages:
+    failed = bool(result and result["status"] in {"EDITING_FAILURE", "TRAINING_FAILURE"})
+    if "report" in args.stages and failed:
+        print("loop failed; skipping the report stage", flush=True)
+    elif "report" in args.stages:
         steps = bench_report(args.run, cfg, eigen=not args.no_eigen)
         print(steps.round(3).to_string(index=False))
-    return 1 if result and result["status"] in {"EDITING_FAILURE", "TRAINING_FAILURE"} else 0
+    return 1 if failed else 0
 
 
 if __name__ == "__main__":

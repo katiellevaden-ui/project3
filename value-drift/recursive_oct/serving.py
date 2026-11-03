@@ -42,9 +42,9 @@ class ServedModel:
         if not engine.get("enable_prefix_caching", True):
             cmd.append("--no-enable-prefix-caching")
         cmd += list(self.config.get("extra_args", []))
-        log = open(self.log_dir / f"serve-{self.tag}.log", "a") if self.log_dir else subprocess.DEVNULL
         if self.log_dir:
             self.log_dir.mkdir(parents=True, exist_ok=True)
+        log = open(self.log_dir / f"serve-{self.tag}.log", "a") if self.log_dir else subprocess.DEVNULL
         self.process = subprocess.Popen(cmd, stdout=log, stderr=subprocess.STDOUT)
         base = f"http://127.0.0.1:{port}"
         deadline = time.time() + self.config.get("startup_timeout_seconds", 900)
