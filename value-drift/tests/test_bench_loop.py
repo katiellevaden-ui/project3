@@ -56,7 +56,7 @@ def test_two_rounds_end_to_end(tmp_path, config, monkeypatch):
     assert (root / "round_002" / "evidence.txt").read_text().startswith("Before deciding")
     assert not (root / "round_001" / "evidence.txt").exists()                                    # no edit in the initial round
     for n in (1, 2):
-        assert (root / f"round_{n:03d}" / "elicited_after_training" / f"M{n:03d}.md").exists()
+        assert (root / f"round_{n:03d}" / "elicited_after_training" / f"m{n:03d}.md").exists()   # safe_name lower-cases the tag
         gap = json.loads((root / f"round_{n:03d}" / "preferences.gap.json").read_text())
         assert gap["judged_pairs"] > 0 and 0 <= gap["chosen_win_rate"] <= 1 and gap["length_ratio"] > 1
         assert len(list((root / "measure" / f"M{n:03d}_dpo" / "none").glob("repeat*"))) == 2        # post-DPO measurement

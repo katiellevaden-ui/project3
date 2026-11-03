@@ -95,11 +95,31 @@ def answers_from(logs) -> tuple[dict[str, np.ndarray], dict[str, str]]:
 
 
 def elicit(served: ServedModel, out_dir: Path, bench: dict, tag: str) -> Path:
+    """One elicitation sample per attempt, up to bench.elicit_attempts (default 3). A rejected
+    sample (refusal, or no '### P<n>.' headings) is kept as <tag>.rejected.<attempt>.txt and the
+    attempts are recorded in elicit_attempts.json, so a stochastic refusal does not end the run."""
     from valuedrift.elicit import elicit_task
-    _inspect_eval(elicit_task(tag, out_dir=str(out_dir), reasoning=bench.get("reasoning", "default")), served.model, out_dir / "log", bench)
-    accepted = out_dir / f"{tag}.md"
+    from valuedrift.registry import safe_name
+    # elicit_task writes safe_name(tag) (lower case): m000.md, not M000.md. Case matters on Linux.
+    name = safe_name(tag)
+    accepted = out_dir / f"{name}.md"
+    attempts = int(bench.get("elicit_attempts", 3))
+    record = []
+    for attempt in range(1, attempts + 1):
+        _inspect_eval(elicit_task(tag, out_dir=str(out_dir), reasoning=bench.get("reasoning", "default")),
+                      served.model, out_dir / ("log" if attempt == 1 else f"log{attempt}"), bench)
+        rejected = out_dir / f"{name}.rejected.txt"
+        if accepted.exists():
+            record.append({"attempt": attempt, "accepted": True, "words": len(accepted.read_text().split())})
+            break
+        kept = out_dir / f"{name}.rejected.{attempt}.txt"
+        if rejected.exists():
+            rejected.replace(kept)
+        record.append({"attempt": attempt, "accepted": False,
+                       "words": len(kept.read_text().split()) if kept.exists() else 0})
+    write_json(out_dir / "elicit_attempts.json", record)
     if not accepted.exists():
-        raise RuntimeError(f"{tag} did not produce a valid constitution (see {out_dir})")
+        raise RuntimeError(f"{tag} did not produce a valid constitution in {attempts} attempts (see {out_dir})")
     return accepted
 
 

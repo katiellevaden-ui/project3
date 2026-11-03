@@ -45,7 +45,14 @@ class ServedModel:
         if self.log_dir:
             self.log_dir.mkdir(parents=True, exist_ok=True)
         log = open(self.log_dir / f"serve-{self.tag}.log", "a") if self.log_dir else subprocess.DEVNULL
-        self.process = subprocess.Popen(cmd, stdout=log, stderr=subprocess.STDOUT)
+        # The inference venv's bin holds ninja (and the CUDA bin under CUDA_HOME holds nvcc), which
+        # FlashInfer's JIT runs as subprocesses; put them on PATH as vllm_session.py does.
+        env = os.environ.copy()
+        extra = [str(Path(self.config["vllm_python"]).resolve().parent)]
+        if env.get("CUDA_HOME"):
+            extra.append(str(Path(env["CUDA_HOME"]) / "bin"))
+        env["PATH"] = os.pathsep.join(extra + [env.get("PATH", "")])
+        self.process = subprocess.Popen(cmd, stdout=log, stderr=subprocess.STDOUT, env=env)
         base = f"http://127.0.0.1:{port}"
         deadline = time.time() + self.config.get("startup_timeout_seconds", 900)
         while time.time() < deadline:
