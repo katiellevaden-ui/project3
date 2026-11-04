@@ -1,0 +1,140 @@
+{
+  "note": "Relabel of bench-oct-001 after its main arm measured nothing: with thinking on, the 200-token ValueBench answers were all empty (300/300 stopped at max_tokens) and the judge rated them 5, so the evidence block, the trained/prompted excesses and EigenBench were artefacts, and M001 declined to edit a table of judge defaults. Change: vLLM serves with enable_thinking=false (the training generation stage already did), so measured answers are real text; bench.max_empty_answer_fraction stops the loop with MEASUREMENT_FAILURE if more than 5% of measurement answers come back empty. Everything else as bench-oct-001. Plumbing pass must run through one ValueBench measurement before freezing. Bench-measured recursive OCT: M_t elicits/edits under the inference study's prompts, trains on C_{t+1} with recursive_oct's full-parameter DPO+SFT (teacher = M_t itself), and every checkpoint is measured with ValueBench/EigenBench through a vLLM OpenAI endpoint. Provisional: run scripts/validate_stage2_gpu.py and one round of this loop on the pod, then set frozen=true. serve.extra_args sends Qwen's thinking to reasoning_content so measured answers are the final text only; confirm on the pod with one ValueBench run. Round 1 trains on the unedited C_0 (train_initial); max_rounds 4 = initial + three edited rounds. The post-DPO checkpoint is measured each round. A blind judge measures the chosen/rejected gap on 50 pairs each round; below a 0.6 win rate DPO is skipped and SFT runs alone. Controls: bench-oct-001-fixed.json, -placebo.json, -untrained.json.",
+  "frozen": false,
+  "run_label": "bench-oct-001",
+  "model": "/workspace/huggingface/hub/models--Qwen--Qwen3.5-9B/snapshots/c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "official_model": "Qwen/Qwen3.5-9B",
+  "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "teacher": "self",
+  "constitution": null,
+  "max_rounds": 4,
+  "stage_cost_margin_usd": 3,
+  "train_prompts": "data/train.jsonl",
+  "introspection_prompts": "prompts/introspection.jsonl",
+  "dpo": {
+    "parameter_dtype": "float32",
+    "optimizer": "adamw_8bit",
+    "learning_rate": 1e-05,
+    "adam_betas": [
+      0.9,
+      0.98
+    ],
+    "weight_decay": 0.0,
+    "max_length": 2560,
+    "logit_chunk_size": 32,
+    "gradient_accumulation_steps": 8,
+    "epochs": 1,
+    "warmup_ratio": 0.1,
+    "max_grad_norm": 1.0,
+    "seed": 20260915,
+    "attention": "sdpa",
+    "beta": 0.1,
+    "nll_coef": 0.1,
+    "allow_target_truncation": false
+  },
+  "sft": {
+    "parameter_dtype": "float32",
+    "optimizer": "adamw_8bit",
+    "learning_rate": 1e-05,
+    "adam_betas": [
+      0.9,
+      0.98
+    ],
+    "weight_decay": 0.0,
+    "max_length": 3072,
+    "logit_chunk_size": 32,
+    "gradient_accumulation_steps": 8,
+    "epochs": 1,
+    "warmup_ratio": 0.1,
+    "max_grad_norm": 1.0,
+    "seed": 20260915,
+    "attention": "sdpa",
+    "allow_target_truncation": false
+  },
+  "generation": {
+    "enable_thinking": false,
+    "max_new_tokens": 1536,
+    "max_input_tokens": 16384,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "batch_size": 32,
+    "allow_truncated": false,
+    "seed": 20260915,
+    "backend": "vllm",
+    "vllm_python": "/workspace/venv-vllm/bin/python",
+    "vllm_engine": {
+      "max_model_len": 32768,
+      "max_num_seqs": 32,
+      "gpu_memory_utilization": 0.7,
+      "enable_prefix_caching": false
+    },
+    "minimum_retained_fraction": 0.5
+  },
+  "introspection": {
+    "enable_thinking": false,
+    "max_new_tokens": 1536,
+    "max_input_tokens": 16384,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "batch_size": 32,
+    "allow_truncated": false,
+    "seed": 20260915,
+    "reflection_count": 512,
+    "interaction_count": 64,
+    "interaction_turns": 4,
+    "backend": "vllm",
+    "vllm_python": "/workspace/venv-vllm/bin/python",
+    "vllm_engine": {
+      "max_model_len": 32768,
+      "max_num_seqs": 32,
+      "gpu_memory_utilization": 0.7,
+      "enable_prefix_caching": false
+    },
+    "interaction_max_new_tokens": 768,
+    "minimum_reflection_fraction": 0.5,
+    "minimum_interaction_fraction": 0.5
+  },
+  "serve": {
+    "backend": "vllm",
+    "vllm_python": "/workspace/venv-vllm/bin/python",
+    "port": 8010,
+    "api_key": "local",
+    "startup_timeout_seconds": 900,
+    "vllm_engine": {
+      "max_model_len": 16384,
+      "max_num_seqs": 32,
+      "gpu_memory_utilization": 0.85,
+      "enable_prefix_caching": true
+    },
+    "extra_args": [
+      "--reasoning-parser",
+      "qwen3",
+      "--default-chat-template-kwargs",
+      "{\"enable_thinking\": false}"
+    ]
+  },
+  "bench": {
+    "judge": "openrouter/deepseek/deepseek-v4-flash-0731",
+    "questionnaires": "PVQ40,MFT23,LVI,HEXACO",
+    "split": "measure",
+    "vb_epochs": 3,
+    "measure_repeats": 2,
+    "measure_prompted_comparator": true,
+    "invitation_id": "gen10",
+    "invitation_path": "prompts/bench_invitation_gen10.md",
+    "reasoning": "default",
+    "max_connections": 16,
+    "timeout": 900,
+    "display": "plain",
+    "scenarios_limit": 20,
+    "random_pairs": 2,
+    "measure_post_dpo": true,
+    "margin_pairs": 50,
+    "max_empty_answer_fraction": 0.05
+  },
+  "train_initial": true,
+  "edit": true,
+  "dpo_skip_below_win_rate": 0.6
+}

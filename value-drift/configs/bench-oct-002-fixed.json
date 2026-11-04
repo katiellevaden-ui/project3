@@ -1,0 +1,140 @@
+{
+  "note": "Serve with enable_thinking=false and the empty-answer guard (see bench-oct-002.json). Fixed-C_0 control: starts from the main arm's shared M_1 (trained on C_0) and its C_0, never edits, trains on C_0 for max_rounds more rounds. Run after the main arm's round 1 exists.",
+  "frozen": false,
+  "run_label": "bench-oct-001-fixed",
+  "model": "runs/bench-oct-001/round_001/final",
+  "official_model": "Qwen/Qwen3.5-9B",
+  "model_revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+  "teacher": "self",
+  "constitution": "runs/bench-oct-001/C_000.md",
+  "max_rounds": 3,
+  "stage_cost_margin_usd": 3,
+  "train_prompts": "data/train.jsonl",
+  "introspection_prompts": "prompts/introspection.jsonl",
+  "dpo": {
+    "parameter_dtype": "float32",
+    "optimizer": "adamw_8bit",
+    "learning_rate": 1e-05,
+    "adam_betas": [
+      0.9,
+      0.98
+    ],
+    "weight_decay": 0.0,
+    "max_length": 2560,
+    "logit_chunk_size": 32,
+    "gradient_accumulation_steps": 8,
+    "epochs": 1,
+    "warmup_ratio": 0.1,
+    "max_grad_norm": 1.0,
+    "seed": 20260915,
+    "attention": "sdpa",
+    "beta": 0.1,
+    "nll_coef": 0.1,
+    "allow_target_truncation": false
+  },
+  "sft": {
+    "parameter_dtype": "float32",
+    "optimizer": "adamw_8bit",
+    "learning_rate": 1e-05,
+    "adam_betas": [
+      0.9,
+      0.98
+    ],
+    "weight_decay": 0.0,
+    "max_length": 3072,
+    "logit_chunk_size": 32,
+    "gradient_accumulation_steps": 8,
+    "epochs": 1,
+    "warmup_ratio": 0.1,
+    "max_grad_norm": 1.0,
+    "seed": 20260915,
+    "attention": "sdpa",
+    "allow_target_truncation": false
+  },
+  "generation": {
+    "enable_thinking": false,
+    "max_new_tokens": 1536,
+    "max_input_tokens": 16384,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "batch_size": 32,
+    "allow_truncated": false,
+    "seed": 20260915,
+    "backend": "vllm",
+    "vllm_python": "/workspace/venv-vllm/bin/python",
+    "vllm_engine": {
+      "max_model_len": 32768,
+      "max_num_seqs": 32,
+      "gpu_memory_utilization": 0.7,
+      "enable_prefix_caching": false
+    },
+    "minimum_retained_fraction": 0.5
+  },
+  "introspection": {
+    "enable_thinking": false,
+    "max_new_tokens": 1536,
+    "max_input_tokens": 16384,
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "top_k": 20,
+    "batch_size": 32,
+    "allow_truncated": false,
+    "seed": 20260915,
+    "reflection_count": 512,
+    "interaction_count": 64,
+    "interaction_turns": 4,
+    "backend": "vllm",
+    "vllm_python": "/workspace/venv-vllm/bin/python",
+    "vllm_engine": {
+      "max_model_len": 32768,
+      "max_num_seqs": 32,
+      "gpu_memory_utilization": 0.7,
+      "enable_prefix_caching": false
+    },
+    "interaction_max_new_tokens": 768,
+    "minimum_reflection_fraction": 0.5,
+    "minimum_interaction_fraction": 0.5
+  },
+  "serve": {
+    "backend": "vllm",
+    "vllm_python": "/workspace/venv-vllm/bin/python",
+    "port": 8010,
+    "api_key": "local",
+    "startup_timeout_seconds": 900,
+    "vllm_engine": {
+      "max_model_len": 16384,
+      "max_num_seqs": 32,
+      "gpu_memory_utilization": 0.85,
+      "enable_prefix_caching": true
+    },
+    "extra_args": [
+      "--reasoning-parser",
+      "qwen3",
+      "--default-chat-template-kwargs",
+      "{\"enable_thinking\": false}"
+    ]
+  },
+  "bench": {
+    "judge": "openrouter/deepseek/deepseek-v4-flash-0731",
+    "questionnaires": "PVQ40,MFT23,LVI,HEXACO",
+    "split": "measure",
+    "vb_epochs": 3,
+    "measure_repeats": 2,
+    "measure_prompted_comparator": true,
+    "invitation_id": "gen10",
+    "invitation_path": "prompts/bench_invitation_gen10.md",
+    "reasoning": "default",
+    "max_connections": 16,
+    "timeout": 900,
+    "display": "plain",
+    "scenarios_limit": 20,
+    "random_pairs": 2,
+    "measure_post_dpo": true,
+    "margin_pairs": 50,
+    "max_empty_answer_fraction": 0.05
+  },
+  "train_initial": false,
+  "edit": false,
+  "dpo_skip_below_win_rate": 0.6
+}

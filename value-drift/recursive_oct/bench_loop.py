@@ -81,7 +81,26 @@ def measure(served: ServedModel, constitution_path: str | None, out_dir: Path, b
                                             None if constitution_path is None else str(constitution_path)),
                                reasoning=bench.get("reasoning", "default"))
         logs.append(_inspect_eval(task, served.model, out_dir / f"repeat{k}", bench, epochs=bench.get("vb_epochs", 3)))
+    check_answers(logs, bench, tag)
     return logs
+
+
+def check_answers(logs, bench: dict, tag: str) -> dict:
+    """Measurement validity: the share of ValueBench answers that came back empty. The judge rates
+    an empty answer 5, so a served model whose thinking consumes the answer budget measures as a
+    flat 5.0 profile. Above bench.max_empty_answer_fraction (default 1.0 = never) the stage fails."""
+    n = empty = 0
+    for log in logs:
+        for s in log.samples:
+            n += 1
+            if not ((s.store.get("answer") if s.store else None) or (s.output.completion if s.output else "") or "").strip():
+                empty += 1
+    frac = empty / n if n else 0.0
+    limit = float(bench.get("max_empty_answer_fraction", 1.0))
+    if frac > limit:
+        raise RuntimeError(f"MEASUREMENT_FAILURE: {tag} returned {empty}/{n} empty ValueBench answers ({frac:.0%}); "
+                           f"limit {limit:.0%}. Thinking is probably consuming the answer budget; serve with enable_thinking=false.")
+    return {"answers": n, "empty": empty, "empty_fraction": frac}
 
 
 def answers_from(logs) -> tuple[dict[str, np.ndarray], dict[str, str]]:

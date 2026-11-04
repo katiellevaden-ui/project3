@@ -110,7 +110,9 @@
     },
     "extra_args": [
       "--reasoning-parser",
-      "qwen3"
+      "qwen3",
+      "--default-chat-template-kwargs",
+      "{\"enable_thinking\": false}"
     ]
   },
   "bench": {
@@ -129,7 +131,8 @@
     "scenarios_limit": 5,
     "random_pairs": 1,
     "measure_post_dpo": true,
-    "margin_pairs": 8
+    "margin_pairs": 8,
+    "max_empty_answer_fraction": 0.05
   },
   "train_initial": true,
   "edit": true,
