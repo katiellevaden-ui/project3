@@ -399,21 +399,36 @@ class OCTTrainer:
 
 
 class FakeTrainer:
-    """No training: every stage writes a placeholder and returns the output path as the next
-    checkpoint. For checking the loop's plumbing offline or on a pod before spending GPU time."""
+    """No training: every stage writes a placeholder, and the trained "checkpoint" is a directory
+    whose weights are symlinks to the input checkpoint, so the loop's serving of a post-DPO and a
+    post-SFT checkpoint is exercised too. For checking the loop's plumbing offline or on a pod
+    before spending GPU time."""
 
     def preferences(self, checkpoint, constitution_path, output):
         Path(output).parent.mkdir(parents=True, exist_ok=True)
         Path(output).write_text(json.dumps({"id": "fake", "prompt": "", "chosen": "", "rejected": "", "note": "FakeTrainer"}) + "\n")
 
+    @staticmethod
+    def _alias(checkpoint, output):
+        """A servable copy of checkpoint at output: every file symlinked (weights are not duplicated)."""
+        out = Path(output); out.mkdir(parents=True, exist_ok=True)
+        src = Path(checkpoint)
+        if src.is_dir():
+            for f in src.iterdir():
+                target = out / f.name
+                if not target.exists() and not target.is_symlink():
+                    target.symlink_to(f.resolve())
+        (out / "FAKE_CHECKPOINT").write_text(str(checkpoint))
+        return str(out)
+
     def dpo(self, checkpoint, data, output):
-        Path(output).mkdir(parents=True, exist_ok=True); (Path(output) / "FAKE_CHECKPOINT").write_text(str(checkpoint)); return str(output)
+        return self._alias(checkpoint, output)
 
     def introspection(self, checkpoint, output, constitution_text):
         Path(output).write_text("{}\n")
 
     def sft(self, checkpoint, data, output):
-        Path(output).mkdir(parents=True, exist_ok=True); (Path(output) / "FAKE_CHECKPOINT").write_text(str(checkpoint)); return str(output)
+        return self._alias(checkpoint, output)
 
 
 # --------------------------------------------------------------------------

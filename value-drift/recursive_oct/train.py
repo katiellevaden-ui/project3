@@ -4,6 +4,7 @@ import argparse
 from collections.abc import Mapping
 from numbers import Integral
 import json
+import shutil
 import math
 from pathlib import Path
 import random
@@ -274,6 +275,12 @@ def _train(checkpoint, data_path, output_dir, config, stage):
         model.eval(); model.config.use_cache = True
         model.save_pretrained(output, safe_serialization=True, max_shard_size='4GB')
         tokenizer.save_pretrained(output)
+        # Qwen3.5 is a multimodal architecture: vLLM needs the processor configs beside the
+        # weights, which model/tokenizer save_pretrained do not write. Carry them over.
+        for name in PROCESSOR_FILES:
+            source = Path(checkpoint) / name
+            if source.is_file() and not (output / name).exists():
+                shutil.copy(source, output / name)
         stats = {'stage':stage,'input_checkpoint':str(checkpoint),'output_checkpoint':str(output),
                  'config':config,'examples':len(examples),'optimizer_steps':step,
                  'mean_loss':sum(r['loss'] for r in records)/len(records),
@@ -285,6 +292,10 @@ def _train(checkpoint, data_path, output_dir, config, stage):
         # Release aliases before the context manager empties CUDA caches.
         del model, tokenizer
         return stats
+
+
+PROCESSOR_FILES = ('preprocessor_config.json', 'video_preprocessor_config.json', 'processor_config.json',
+                   'chat_template.json', 'chat_template.jinja', 'generation_config.json')
 
 
 def train_dpo(checkpoint, preferences_path, output_dir, config):
